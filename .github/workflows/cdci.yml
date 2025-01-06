@@ -32,13 +32,21 @@ jobs:
       run: npm run build
 
     - name: Synchronize Files To Server
+      uses: appleboy/scp-action@v0.1.1
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        password: ${{ secrets.VPS_PASSWORD }}
+        source: "."
+        target: "/var/www/html/prodapp/"
+
+    - name: Run Remote/Artisan Commands
       uses: appleboy/ssh-action@v0.1.6
       with:
-        host: 152.42.242.130
-        username: root
-        password: 1332@!Minhaz**M
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        password: ${{ secrets.VPS_PASSWORD }}
         script: |
-          rsync -avz --exclude '.git' . root@152.42.242.130:/var/www/html/prodapp/
           cd /var/www/html/prodapp
           php artisan migrate --force
           php artisan optimize
