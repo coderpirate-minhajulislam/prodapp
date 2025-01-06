@@ -168,6 +168,9 @@
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
                         <h2> Develop By Minhajul Islam</h2>
+                        <h2> Develop By Minhajul Islam</h2>
+                        <h2> CD CI</h2>
+                        <h2> Develop By Minhajul Islam</h2>
                         Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </footer>
                 </div>
