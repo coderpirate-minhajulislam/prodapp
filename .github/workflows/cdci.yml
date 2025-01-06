@@ -38,7 +38,7 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         password: ${{ secrets.VPS_PASSWORD }}
         script: |
-          rsync -avz --exclude '.git' . ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/html/prodapp/
-          cd /var/www/html/prodapp
+          rsync -avz --exclude '.git' . ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/html/growever.com.bd/
+          cd /var/www/html/growever.com.bd
           php artisan migrate --force
           php artisan optimize
